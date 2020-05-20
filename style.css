@@ -1,0 +1,18 @@
+FullScreenButton {
+    position: absolute;
+    top: 50px;
+    left: 5px;
+    width: auto;
+    height:auto;
+    line-height: 20pt;
+    padding: 5px 15px 5px 15px;
+    background: #0000ff;
+    opacity: 1;
+    color: #fff;
+    z-index: 10000;
+    cursor: pointer
+}
+
+FullScreenButton:hover {
+    background: #eeeeff;
+}
