@@ -1,18 +1,20 @@
+// in sekunden  angegeben
 var timeleft = 10;
 
 var startTime = 0;
 var currentTime = 0;
 
 function convertSeconds(s) {
+    // sec und min umrechnen
     var min = floor(s / 60);
     var sec = s % 60;
     return nf(min, 2) + ':' + nf(sec, 2);
 }
 
-var ding;
+var abba;
 
 function preload() {
-    ding = loadSound('ding.mp3');
+    abba = loadSound('abba.mp3');
 }
 
 function setup() {
@@ -35,9 +37,13 @@ function setup() {
         currentTime = floor((millis() - startTime) / 1000);
         timer.html(convertSeconds(timeleft - currentTime));
         if (currentTime == timeleft) {
-            ding.play();
+            abba.play();
             clearInterval(interval);
             //counter = 0;
         }
     }
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

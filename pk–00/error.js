@@ -1,8 +1,3 @@
-let img;
-function preload() {
-    img = loadImage('assets/error.svg');
-}
-
 let myFont;
 function preload() {
     myFont = loadFont('orbitron/orbitron-medium.otf');
@@ -18,52 +13,51 @@ let env;
 let triOsc;
 
 function setup() {
-    image(img, 100, 100);
-   // createCanvas(windowWidth, windowHeight);
+    // animation an position 0 setzen unter den HTML text
+    canvas = createCanvas(windowWidth, windowHeight);
+    canvas.position(0, 0);
+    canvas.style('z-index', '-1');
+
     background(100);
 
-    let cnv = createCanvas(windowWidth, windowHeight);
-//    cnv.mousePressed(playSynth);
-//    cnv.background(0)
+    // let cnv = createCanvas(100, 100);
+    // cnv.mousePressed(playSynth);
+    // cnv.background(0)
 
     env = new p5.Envelope(t1, l1, t2, l2);
     triOsc = new p5.Oscillator('triangle');
-    env.setRange(0.3,0)
+    env.setRange(0.3, 0)
     reverb = new p5.Reverb();
     reverb.drywet(1);
-    reverb.process(triOsc, 3,2);
+    reverb.process(triOsc, 3, 2);
 }
 
 function draw() {
     // ellipse(mouseX, mouseY, 20, 20);
-
+    fill(255);
     textFont(myFont);
-
-    // linie + text
-    fill(255)
-    noStroke();
-    background(0,20)
-    if (frameCount%20==0){
+    background(0, 100)
+    if (frameCount % 20 == 0) {
         background('red')
         playSynth()
-        textSize(80)
+        textSize(150)
     }
-    text(int(frameCount/10 + mouseX/10)%20,width/2,height/2)
-    rect(mouseX,0,10,height)
+    text(int(frameCount / 10 + mouseX / 10) % 20, width / 2, height / 2)
+    rect(mouseX, 0, 10, height)
 }
 
 function playSynth() {
 
-    triOsc.freq(440*pow(pow(2,1/12),int(frameCount/10 + mouseX/10)%20) );
+    triOsc.freq(440 * pow(pow(2, 1 / 12), int(frameCount / 10 + mouseX / 10) % 20));
     triOsc.start();
     // triOsc.amp(0.2);
     env.play(triOsc);
 }
-function mouseMoved(){
+
+function mouseMoved() {
     playSynth()
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 }
-
