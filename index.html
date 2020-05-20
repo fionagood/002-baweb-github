@@ -4,46 +4,34 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>002-baweb</title>
-    <script src="script.js"></script>
+    <script>
+        /*this adds the javascript file after page has finished loading */
+        let scriptElement=document.createElement('script');
+        scriptElement.type = 'text/javascript';
+        scriptElement.src = "script.js";
+        document.head.appendChild(scriptElement);
+    </script>
     <link href="style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
-
-    <li><a href="pk–00/error.html">pk-00</a></li>
-    <li><a href="pk–01/timer.html">pk-01</a></li>
-    <li><a href="pk–02/animation.html">pk-02</a></li>
-    <li><a href="pk–03/sehen.html">pk-03</a></li>
-    <li><a href="pk–04/suchmaschine.html">pk-45</a></li>
-    <li><a href="pk–05/zensur.html">pk-05</a></li>
-    <li><a href="pk–06/blitzlicht.html">pk-06</a></li>
-    <li><a href="pk–07/random_words.html">pk-07</a></li>
-    <li><a href="pk–08/kamera.html">pk-08</a></li>
-
-
-    <style>
-        body {
-            background-color: red;
-            padding: 0;
-            margin: 0;
-        }
-
-        li {
-            list-style-type: none;
-        }
-
-        a {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28vw;
-            color: blue;
-        }
-    </style>
-
 </head>
 
 <body>
-
-
+<iframe class="iframeclass" src="index2.html"></iframe>
 </body>
-
+<style>
+    .iframeclass {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    box-sizing: border-box;
+}
+body {
+     margin: 0;
+     padding: 0;
+}
+</style>
 </html>
