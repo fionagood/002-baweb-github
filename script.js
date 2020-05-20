@@ -3,6 +3,8 @@ if (document.fullscreenElement) {
 } else {
     this.addFullScreenButton()
 }
+
+
 function addFullScreenButton () {
     let button = document.createElement('FullScreenButton')
     button.innerHTML = '[ + ]'
@@ -12,6 +14,11 @@ function addFullScreenButton () {
         this.openFullscreen()
         button.remove()
     }.bind(this))
+
+    document.addEventListener("fullscreenchange", function (e) {
+        e.stopPropagation();
+    });
+
 }
 
 function openFullscreen () {
