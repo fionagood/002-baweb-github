@@ -1,4 +1,6 @@
+let img;
 let myFont;
+
 function preload() {
     myFont = loadFont('orbitron/orbitron-medium.otf');
 }
@@ -13,11 +15,14 @@ let env;
 let triOsc;
 
 function setup() {
+    img = loadImage('assets/error.png');
+
     // animation an position 0 setzen unter den HTML text
     canvas = createCanvas(windowWidth, windowHeight);
     canvas.position(0, 0);
     canvas.style('z-index', '-1');
 
+    image(img, 10, 10, 50, 50);
     background(100);
 
     // let cnv = createCanvas(100, 100);
@@ -34,17 +39,18 @@ function setup() {
 
 function draw() {
     // ellipse(mouseX, mouseY, 20, 20);
-    fill(255);
+    fill(255,0,0,80);
     textFont(myFont);
     background(0, 100)
     if (frameCount % 20 == 0) {
         background('red')
         playSynth()
-        textSize(150)
+        textSize(50)
     }
     text(int(frameCount / 10 + mouseX / 10) % 20, width / 2, height / 2)
     rect(mouseX, 0, 10, height)
 }
+
 
 function playSynth() {
 

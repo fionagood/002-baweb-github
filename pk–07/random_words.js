@@ -4,10 +4,11 @@ function preload() {
     myFont = loadFont('orbitron/orbitron-medium.otf');
 }
 
-var lexicon;
+//var lexicon;
 var voice;
-var word = '';
+var word = 'pol-kontrol';
 var size = 10;
+
 
 function setup() {
     // animation an position 0 setzen unter den HTML text
@@ -25,9 +26,9 @@ function draw() {
     textFont(myFont);
     textSize(size);
     textAlign(CENTER);
-    fill(0);
-    stroke(255, 0, 0);
-    text(word, width / 2, height / 2);
+    fill(255, 0, 0);
+    stroke(0);
+    text(word, width / 2, 550);
 
     size++;
 }
